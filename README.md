@@ -1,6 +1,6 @@
 # 🐾 Cat vs Dog Image Classification using CNN
 
-[![Streamlit App](https://cnn-project-imageclassification.streamlit.app/)]
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_svg.svg)](https://cnn-project-imageclassification.streamlit.app/)
 
 This project is a **Deep Learning** web application that classifies images of cats and dogs using a **Convolutional Neural Network (CNN)**. It is built with **TensorFlow** and deployed via **Streamlit Cloud** for real-time accessibility.
 
