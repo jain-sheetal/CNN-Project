@@ -1,4 +1,40 @@
-# CNN-Project
+# 🐾 Cat vs Dog Image Classification using CNN
 
-🐾 Cat vs Dog Image Classification using CNNThis repository contains a Deep Learning project developed for my final year, focused on binary image classification using Convolutional Neural Networks (CNN). The project is fully deployed and accessible via a web interface powered by Streamlit Cloud.🚀 Project OverviewThe goal of this project is to distinguish between images of cats and dogs with high accuracy. It utilizes a CNN architecture to automatically extract features such as ear shapes, fur textures, and facial patterns from raw pixels.📁 Repository StructureTo ensure successful deployment on Streamlit Cloud, the following files are maintained in the root directory:app.py: The core application script that handles the user interface, image preprocessing, and model inference.CAT_DOG_MODEL.h5: The pre-trained CNN model file containing the learned weights and network architecture.requirements.txt: A configuration file that lists the necessary Python dependencies for the cloud environment.🛠️ Tech StackLanguage: PythonDeep Learning Framework: TensorFlow / KerasWeb Framework: StreamlitLibraries: NumPy (Matrix operations), Pillow (Image processing).⚙️ How It WorksImage Upload: Users upload a .jpg or .png image through the web interface.Preprocessing: The image is automatically resized (e.g., to $160 \times 160$) and normalized to match the model's input requirements.Inference: The CNN model processes the image and outputs a probability score.Result: The app displays whether the animal is a Cat or a Dog along with a confidence percentage.🌐 Deployment NoteThis project utilizes Relative Paths to ensure portability between local development and cloud servers. By hosting the model on GitHub and linking it to Streamlit Cloud, the classifier is available for real-time use globally.
-STREAMLIT APP LINK : https://cnn-project-imageclassification.streamlit.app/
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_svg.svg)](YOUR_STREAMLIT_URL_HERE)
+
+This project is a **Deep Learning** web application that classifies images of cats and dogs using a **Convolutional Neural Network (CNN)**. It is built with **TensorFlow** and deployed via **Streamlit Cloud** for real-time accessibility.
+
+---
+
+## 🌟 Key Features
+* **Real-time Prediction**: Upload any image of a pet and get instant results.
+* **Transfer Learning**: Optimized using the MobileNetV2 architecture for high accuracy and speed.
+* **Cloud Infrastructure**: Fully hosted on Streamlit Cloud using automated CI/CD from GitHub.
+* **Responsive UI**: A clean, "human-friendly" interface built for both desktop and mobile viewing.
+
+---
+
+## 🛠️ Technical Stack
+| Category | Technology |
+| :--- | :--- |
+| **Language** | Python |
+| **Deep Learning** | TensorFlow / Keras |
+| **Web Interface** | Streamlit |
+| **Image Processing** | Pillow (PIL) |
+| **Deployment** | GitHub & Streamlit Cloud |
+
+---
+
+## 📁 Project Structure
+To ensure successful cloud deployment, the following core files are maintained in the root directory:
+
+* `app.py`: The main application logic and UI.
+* `CAT_DOG_MODEL.h5`: The pre-trained model weights.
+* `requirements.txt`: List of dependencies (TensorFlow, Streamlit, etc.).
+
+---
+
+## 🚀 How to Run Locally
+1. **Clone the repository**:
+   ```bash
+   git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
