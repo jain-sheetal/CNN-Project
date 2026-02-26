@@ -1,6 +1,6 @@
 
 
-[![Streamlit App](https://img.shields.io/badge/Streamlit-WebApp-red)](https://cnn-project-imageclassification.streamlit.app/)
+[![Streamlit App](https://img.shields.io/badge/Streamlit-WebApp-red)](https://cnn-project-ah4zqq349qkqlshc4nr3yx.streamlit.app/)
 
 # 🐶🐱 Cat vs Dog Image Classification using CNN  
 
