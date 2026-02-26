@@ -1,7 +1,6 @@
-streamlit==1.32.0
-tensorflow-cpu==2.15.0
-numpy==1.26.4
-pillow==10.2.0
-git add .
-git commit -m "fix streamlit deps"
-git push
+streamlit
+tensorflow
+numpy
+pillow
+# Add flask ONLY if you are actually using it for an API, 
+# but for a standard Streamlit app, you don't need it.
