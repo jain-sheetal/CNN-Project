@@ -1,6 +1,6 @@
 
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_svg.svg)](https://cnn-project-imageclassification.streamlit.app/)
+[[Streamlit App](https://static.streamlit.io/badges/streamlit_badge_svg.svg)](https://cnn-project-imageclassification.streamlit.app/)
 
 # 🐶🐱 Cat vs Dog Image Classification using CNN  
 
@@ -220,6 +220,6 @@ This project demonstrates the real-world application of Deep Learning in image c
 
 ## 👩‍💻 Developed By  
 
-**Smruthi Jain**  
+**Sheetal Jain**  
 B.Tech – Artificial Intelligence & Data Science  
 
