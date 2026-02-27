@@ -1,0 +1,67 @@
+st.markdown("""
+<style>
+
+/* Animated Gradient Background */
+[data-testid="stAppViewContainer"] {
+    background: linear-gradient(-45deg, #dbeafe, #f0f9ff, #e0f2fe, #f5f7fa);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+}
+
+/* Animation Keyframes */
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Titles */
+.main-title {
+    text-align:center;
+    font-size:48px;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.subtitle {
+    text-align:center;
+    font-size:18px;
+    color:#334155;
+    margin-bottom:30px;
+}
+
+/* Card */
+.card {
+    padding:25px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+/* Result Colors */
+.result-dog {
+    color:#2563eb;
+    font-size:30px;
+    font-weight:700;
+}
+
+.result-cat {
+    color:#ea580c;
+    font-size:30px;
+    font-weight:700;
+}
+#preview {
+    width: 100%;
+    height: 250px; /* Increased height for better visibility */
+    object-fit: contain; /* Shows the ENTIRE image without cropping */
+    background: rgba(0, 0, 0, 0.2); /* Adds a subtle dark backdrop for portrait images */
+    border-radius: 12px;
+    display: none;
+    margin-bottom: 15px;
+    border: 1px solid rgba(0, 234, 255, 0.3); /* Subtle glow around the image */
+}
+
+</style>
+""", unsafe_allow_html=True)
