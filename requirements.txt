@@ -1,6 +1,0 @@
-streamlit
-tensorflow
-numpy
-pillow
-# Add flask ONLY if you are actually using it for an API, 
-# but for a standard Streamlit app, you don't need it.
