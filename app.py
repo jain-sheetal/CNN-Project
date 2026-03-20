@@ -8,12 +8,14 @@ st.set_page_config(page_title="Cat vs Dog Classifier", page_icon="🐾")
 
 # 2. Load your trained model
 # Make sure 'model.h5' is in the same folder as this script on GitHub
+
+import os
+
 @st.cache_resource
 def load_model():
-    # Adding compile=False helps load older .h5 files into newer Keras versions
-    model = tf.keras.models.load_model('CAT_DOG_MODEL.h5', compile=False)
-    return model
-
+    model_path = 'CAT_DOG_MODEL.h5'
+    # This specifically helps with the 'quantization_config' error
+    return tf.keras.models.load_model(model_path, compile=False, safe_mode=False)
 
 model = load_model()
 
