@@ -15,7 +15,7 @@ st.title("🐾 Cat vs Dog Classifier")
 file = st.file_uploader("Upload a photo...", type=["jpg", "png", "jpeg"])
 
 def import_and_predict(image_data, model):
-    size = (150, 150) 
+    size = (160, 160) 
     image = ImageOps.fit(image_data, size, Image.Resampling.LANCZOS)
     img_array = np.asarray(image.convert("RGB"))
     img_reshape = img_array[np.newaxis, ...] / 255.0 
