@@ -10,7 +10,7 @@ st.set_page_config(page_title="Cat vs Dog Classifier", page_icon="🐾")
 # Make sure 'model.h5' is in the same folder as this script on GitHub
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model('model.h5')
+    model = tf.keras.models.load_model('CAT_DOG_MODEL.h5')
     return model
 
 model = load_model()
