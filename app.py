@@ -1,44 +1,45 @@
 import streamlit as st
+import tensorflow as tf
+from PIL import Image, ImageOps
 import numpy as np
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image
-from PIL import Image
 
-# Page settings
-st.set_page_config(page_title="Cat vs Dog Classifier", layout="centered")
+# 1. Page Configuration
+st.set_page_config(page_title="Cat vs Dog Classifier", page_icon="🐾")
 
-# Load Model
-model = load_model("CAT_DOG_MODEL.h5")
+# 2. Load your trained model
+# Make sure 'model.h5' is in the same folder as this script on GitHub
+@st.cache_resource
+def load_model():
+    model = tf.keras.models.load_model('model.h5')
+    return model
 
-# Title
-st.title("🐶🐱 Cat vs Dog Classifier")
-st.write("Upload an image and get prediction with confidence score.")
+model = load_model()
 
-# File Upload
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+# 3. UI Elements
+st.title("🐾 Cat vs Dog Classifier")
+st.write("Upload a photo of a pet, and the CNN model will predict if it's a Cat or a Dog!")
 
-# Prediction Function
-def predict(img):
-    img = img.resize((150, 150))  # same as training size
-    img_array = image.img_to_array(img)
-    img_array = img_array / 255.0
-    img_array = np.expand_dims(img_array, axis=0)
+file = st.file_uploader("Choose a photo...", type=["jpg", "png", "jpeg"])
 
-    prediction = model.predict(img_array)
+# 4. Prediction Logic
+def import_and_predict(image_data, model):
+    size = (150, 150)  # Change this to match your model's input size
+    image = ImageOps.fit(image_data, size, Image.Resampling.LANCZOS)
+    img_array = np.asarray(image)
+    img_reshape = img_array[np.newaxis, ...] / 255.0  # Normalize if needed
+    prediction = model.predict(img_reshape)
+    return prediction
 
-    return prediction[0][0]
-
-# If Image Uploaded
-if uploaded_file is not None:
-    img = Image.open(uploaded_file)
-    st.image(img, caption="Uploaded Image", use_column_width=True)
-
-    result = predict(img)
-
-    # Convert to percentage
-    if result > 0.5:
-        confidence = result * 100
-        st.success(f"🐶 It's a Dog!\nConfidence: {confidence:.2f}%")
+if file is None:
+    st.text("Please upload an image file")
+else:
+    image = Image.open(file)
+    st.image(image, use_container_width=True)
+    
+    predictions = import_and_predict(image, model)
+    
+    # Assuming 0 is Cat and 1 is Dog based on standard sigmoid output
+    if predictions[0] > 0.5:
+        st.success(f"It's a **Dog**! (Confidence: {float(predictions[0]*100):.2f}%)")
     else:
-        confidence = (1 - result) * 100
-        st.success(f"🐱 It's a Cat!\nConfidence: {confidence:.2f}%")
+        st.success(f"It's a **Cat**! (Confidence: {float((1-predictions[0])*100):.2f}%)")
