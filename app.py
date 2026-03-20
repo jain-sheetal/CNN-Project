@@ -27,7 +27,7 @@ file = st.file_uploader("Choose a photo...", type=["jpg", "png", "jpeg"])
 
 # 4. Prediction Logic
 def import_and_predict(image_data, model):
-    size = (150, 150)  # Change this to match your model's input size
+    size = (160, 160)  # Change this to match your model's input size
     image = ImageOps.fit(image_data, size, Image.Resampling.LANCZOS)
     img_array = np.asarray(image)
     img_reshape = img_array[np.newaxis, ...] / 255.0  # Normalize if needed
