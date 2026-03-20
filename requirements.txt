@@ -1,4 +1,5 @@
-tensorflow-cpu==2.15.0
 streamlit
+keras
+h5py
 pillow
 numpy
