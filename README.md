@@ -11,7 +11,7 @@ Live link: https://image-classification-cnn-project.streamlit.app/
 
 ---
 
-## 📌 Project Overview  
+## 📌 Project Overview
 
 This project is a Deep Learning based Image Classification Web Application that predicts whether an uploaded image is a **Cat 🐱** or a **Dog 🐶**.
 
