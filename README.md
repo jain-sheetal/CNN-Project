@@ -1,13 +1,13 @@
-Live link: https://image-classification-cnn-project.streamlit.app/
+# 🐶🐱 Cat vs Dog Image Classification using CNN
 
+[![Live Demo](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://image-classification-cnn-project.streamlit.app/)
+[![Python](https://img.shields.io/badge/Python-3.10-blue)](https://python.org)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.15-orange)](https://tensorflow.org)
+[![Status](https://img.shields.io/badge/Status-Deployed-brightgreen)](https://image-classification-cnn-project.streamlit.app/)
 
+## 🚀 Live Demo
+Access the live deployed application here: **[https://image-classification-cnn-project.streamlit.app/](https://image-classification-cnn-project.streamlit.app/)**
 
-# 🐶🐱 Cat vs Dog Image Classification using CNN  
-
-![Python](https://img.shields.io/badge/Python-3.10-blue)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-2.15-orange)
-
-![Status](https://img.shields.io/badge/Status-Deployed-brightgreen)
 
 ---
 
@@ -221,5 +221,11 @@ This project demonstrates the real-world application of Deep Learning in image c
 ## 👩‍💻 Developed By  
 
 **Sheetal Jain**  
-B.Tech – Artificial Intelligence & Data Science  
+*B.Tech in Artificial Intelligence & Data Science (2023–2027)*  
+Pranveer Singh Institute of Technology (PSIT), Kanpur  
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/sheetal-jain-1604sj)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/jain-sheetal)
+[![LeetCode](https://img.shields.io/badge/LeetCode-FFA116?style=flat-square&logo=LeetCode&logoColor=black)](https://leetcode.com/u/sheetal-jain)
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:jainsheetal.sj16@gmail.com)
 
