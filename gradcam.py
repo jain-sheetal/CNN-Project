@@ -335,9 +335,33 @@ def explain_image(
 
     original_rgb = np.array(pil_img)
 
-    # 2. Resize and prepare input tensor for EfficientNetV2
+    # 2. Dynamically determine input resolution from model if available
+    if hasattr(model, "input_shape") and model.input_shape and len(model.input_shape) >= 3:
+        h, w = model.input_shape[1], model.input_shape[2]
+        if h is not None and w is not None:
+            target_size = (int(w), int(h))
+
+    # Resize image
     resized_pil = pil_img.resize(target_size, Image.Resampling.BILINEAR)
     img_array = np.array(resized_pil, dtype=np.float32)
+
+    # 3. Apply normalization:
+    # Check if model has an internal Rescaling layer (e.g. EfficientNet with include_preprocessing=True)
+    has_internal_rescaling = False
+    for l in getattr(model, "layers", []):
+        if isinstance(l, tf.keras.layers.Rescaling) or "rescaling" in l.name.lower():
+            has_internal_rescaling = True
+            break
+        if isinstance(l, tf.keras.Model):
+            for sub_l in getattr(l, "layers", []):
+                if isinstance(sub_l, tf.keras.layers.Rescaling) or "rescaling" in sub_l.name.lower():
+                    has_internal_rescaling = True
+                    break
+
+    # If the model does not have built-in rescaling, normalize pixel values from [0, 255] to [0.0, 1.0]
+    if not has_internal_rescaling and img_array.max() > 1.0:
+        img_array = img_array / 255.0
+
     img_tensor = np.expand_dims(img_array, axis=0)
 
     # 3. Compute Grad-CAM

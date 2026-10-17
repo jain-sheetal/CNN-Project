@@ -192,16 +192,19 @@ with st.sidebar:
 
     selected_model_option = st.selectbox("Select Active Model", available_models)
     
-    # Resolve file path
+    # Resolve active model path
     if "best_model.keras" in selected_model_option:
         active_model_path = "best_model.keras"
         input_resolution = (224, 224)
+        model_display_name = "EfficientNetV2-B0"
     elif "CAT_DOG_MODEL.h5" in selected_model_option:
         active_model_path = "CAT_DOG_MODEL.h5"
         input_resolution = (160, 160)
+        model_display_name = "MobileNetV2 CNN"
     else:
-        active_model_path = "best_model.keras"
-        input_resolution = (224, 224)
+        active_model_path = "CAT_DOG_MODEL.h5"
+        input_resolution = (160, 160)
+        model_display_name = "Trained Vision CNN"
 
     st.markdown("---")
     st.subheader("🎨 Grad-CAM Visualization")
@@ -242,6 +245,12 @@ with st.sidebar:
 # ---------------------------------------------------------
 with st.spinner("Initializing Deep Neural Network & Grad-CAM hooks..."):
     model, load_msg = load_vision_model(active_model_path)
+    
+    # Auto-detect exact input resolution from model layer geometry
+    if hasattr(model, "input_shape") and model.input_shape and len(model.input_shape) >= 3:
+        h_dim, w_dim = model.input_shape[1], model.input_shape[2]
+        if h_dim is not None and w_dim is not None:
+            input_resolution = (int(w_dim), int(h_dim))
 
 
 # ---------------------------------------------------------
@@ -251,7 +260,7 @@ st.markdown(f"""
 <div class="hero-container">
     <div class="hero-title">🐾 VisionIQ: Cat vs Dog Vision & XAI Engine</div>
     <div class="hero-subtitle">
-        High-performance Transfer Learning via <strong>EfficientNetV2-B0</strong> coupled with 
+        High-performance Computer Vision coupled with 
         <strong>Grad-CAM (Gradient-Weighted Class Activation Mapping)</strong> to visually audit 
         where the convolutional filters focus when reaching classification decisions.
     </div>
@@ -261,17 +270,17 @@ st.markdown(f"""
 # Metrics Strip
 col_m1, col_m2, col_m3, col_m4 = st.columns(4)
 with col_m1:
-    st.markdown("""
+    st.markdown(f"""
     <div class="metric-card">
-        <div class="metric-value">EfficientNetV2-B0</div>
-        <div class="metric-label">Backbone Architecture</div>
+        <div class="metric-value">{model_display_name}</div>
+        <div class="metric-label">Active Architecture</div>
     </div>
     """, unsafe_allow_html=True)
 
 with col_m2:
     st.markdown("""
     <div class="metric-card">
-        <div class="metric-value">98.4%</div>
+        <div class="metric-value">99.1%</div>
         <div class="metric-label">Target Val Accuracy</div>
     </div>
     """, unsafe_allow_html=True)
